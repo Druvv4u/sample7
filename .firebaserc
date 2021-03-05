@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ecommerceapp-a3bcb": {
+      "hosting": {
+        "EcommerceApp": [
+          "ecommerceapp-a3bcb"
+        ]
+      }
+    }
+  }
+}

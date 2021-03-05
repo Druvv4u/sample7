@@ -1,0 +1,91 @@
+<img class="wave" src="../../assets/pics/wave.png"/>
+<div class="container">
+    <div class="img">
+        <img src ="../../assets/pics/bg.png"/>
+    </div>
+   <div class="login-content">
+     <div class="body">
+       <h2 class="text-center">SignUp Form</h2>
+
+    <form #signup="ngForm">
+            <img src="../../assets/pics/avatar.png"/>
+    
+        <input type="text" 
+        class="form-control" 
+        name="sname" 
+        #sname="ngModel"  
+        [ngModel] 
+        placeholder="Name"
+        required
+        />
+        <br/>
+        <div class="alert alert-danger" *ngIf="sname.invalid && sname.touched">
+            please enter your name
+        </div>
+
+        <!--email element-->
+        <input 
+        type="email" 
+        class="form-control" 
+        email
+        name="semail" 
+        #semail="ngModel"
+        [ngModel] 
+        placeholder="Email"
+        required
+         />
+         <br/>
+         <div class="alert alert-danger" 
+         *ngIf="semail.errors?.required && semail.touched">
+            email is required 
+        </div> 
+        <div class="alert alert-danger"
+         *ngIf="semail.errors?.email && semail.touched">
+            please enter email in xyz@gmail.com
+        </div> 
+        
+        <!--password element-->
+        <input 
+        type="password"
+        class="form-control"
+        minlength="6"
+        name="spass" 
+        #spass="ngModel"
+        [ngModel] 
+        placeholder="Password"
+        required
+         />
+          <br/>
+          <div class="alert alert-danger" *ngIf="spass.errors?.required && spass.touched">
+              please enter your password
+          </div>
+          <div class="alert alert-danger" *ngIf="spass.errors?.minlength && spass.touched">
+              passwored should be at least 6 letters
+          </div>
+
+        <!--coonfirm password element-->
+        <input 
+        type="password" 
+        class="form-control" 
+        name ="scpass" 
+        #scpass="ngModel" 
+        [ngModel] 
+        placeholder="confirm password"
+        required
+        />
+        <br/>
+        <div class="alert alert-danger" 
+        *ngIf="scpass.errors?.required && scpass.touched">
+            please enter your  confirm password
+        </div>
+        <div class="alert alert-danger"
+         *ngIf="spass.value!==scpass.value  && scpass.touched">
+            your password is not same
+        </div>
+
+        <button type="button" class="btn btn-primary" [disabled]="!signup.valid">Submit</button>
+        <button type ="button" class="btn btn-info" (click)="signup.resetForm()">Reset</button>
+     </form>
+  </div>
+ </div> 
+</div>
